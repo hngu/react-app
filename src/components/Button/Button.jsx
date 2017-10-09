@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 class Button extends Component {
-  render() {
-    return <button>Test</button>;
+  render(props) {
+    return <button>{this.props.text}</button>;
   }
 }
 
