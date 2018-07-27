@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Person from './components/Person/Person'
+import React, { Component } from 'react'
+import logo from './logo.svg'
+import './App.css'
+import Person from './components/examples/Person/Person'
 
 class App extends Component {
   render() {
@@ -12,9 +12,11 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <Person />
+        <Person name="John" age="25" />
+        <Person name="Jane" age="25">I like to ski!</Person>
       </div>
     );
   }
 }
 
-export default App;
+export default App
