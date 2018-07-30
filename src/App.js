@@ -11,6 +11,18 @@ class App extends Component {
     ]
   }
 
+  incrementAgeHandler = (name) => {
+    const {people} = this.state
+    const found = people.find(person => person.name === name)
+
+    if (!found) {
+        return
+    }
+
+    found.age = found.age + 1
+    this.setState({people})
+  }
+
   render() {
     return (
       <div className="App">
@@ -21,7 +33,10 @@ class App extends Component {
         <Person />
         {this.state.people.map(person => {
           return (
-              <Person {...person} key={person.id}>
+              <Person name={person.name}
+                age={person.age}
+                key={person.id}
+                incrementAge={this.incrementAgeHandler.bind(this, person.name)}>
                 {person.name === 'Amy' ? 'I like to ski!' : '' }
               </Person>
           );
