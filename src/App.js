@@ -4,6 +4,13 @@ import './App.css'
 import Person from './components/examples/Person/Person'
 
 class App extends Component {
+  state = {
+    people: [
+      {name: 'James', age: 34, id: 1},
+      {name: 'Amy', age: 40, id: 2}
+    ]
+  }
+
   render() {
     return (
       <div className="App">
@@ -12,8 +19,13 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <Person />
-        <Person name="John" age="25" />
-        <Person name="Jane" age="25">I like to ski!</Person>
+        {this.state.people.map(person => {
+          return (
+              <Person {...person} key={person.id}>
+                {person.name === 'Amy' ? 'I like to ski!' : '' }
+              </Person>
+          );
+        })}
       </div>
     );
   }
