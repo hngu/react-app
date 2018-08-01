@@ -11,15 +11,15 @@ class App extends Component {
     ]
   }
 
-  incrementAgeHandler = (name) => {
-    const {people} = this.state
-    const found = people.find(person => person.name === name)
+  incrementAgeHandler = (index) => {
+    const people = [...this.state.people]
+    people[index].age = people[index].age + 1
+    this.setState({people})
+  }
 
-    if (!found) {
-        return
-    }
-
-    found.age = found.age + 1
+  changeNameHandler = (index, event) => {
+    const people = [...this.state.people]
+    people[index].name = event.target.value
     this.setState({people})
   }
 
@@ -31,12 +31,13 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <Person />
-        {this.state.people.map(person => {
+        {this.state.people.map((person, index) => {
           return (
               <Person name={person.name}
                 age={person.age}
                 key={person.id}
-                incrementAge={this.incrementAgeHandler.bind(this, person.name)}>
+                incrementAge={this.incrementAgeHandler.bind(this, index)}
+                changeName={this.changeNameHandler.bind(this, index)}>
                 {person.name === 'Amy' ? 'I like to ski!' : '' }
               </Person>
           );
