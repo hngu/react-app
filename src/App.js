@@ -19,13 +19,21 @@ class App extends Component {
 
   incrementAgeHandler = (index) => {
     const people = [...this.state.people]
-    people[index].age = people[index].age + 1
+    const person = {
+        ...people[index]
+    }
+    person.age = person.age + 1
+    people[index] = person
     this.setState({people})
   }
 
   changeNameHandler = (index, event) => {
     const people = [...this.state.people]
-    people[index].name = event.target.value
+    const person = {
+        ...people[index]
+    }
+    person.name = event.target.value
+    people[index] = person
     this.setState({people})
   }
 
