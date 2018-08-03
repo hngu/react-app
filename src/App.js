@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import logo from './logo.svg'
-import './App.css'
+import classes from './App.css'
 import Person from './components/examples/Person/Person'
 
 class App extends Component {
@@ -60,10 +60,10 @@ class App extends Component {
     }
 
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+      <div className={classes['App']}>
+        <header className={classes['App-header']}>
+          <img src={logo} className={classes['App-logo']} alt="logo" />
+          <h1 className={classes['App-title']}>Welcome to React</h1>
           <button onClick={this.togglePeopleHandler}>Toggle People</button>
         </header>
         {people}
