@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import logo from '../assets/logo.svg'
 import classes from './App.css'
-import Person from '../components/examples/Person/Person'
+import Persons from '../components/examples/Persons/Persons'
 
 class App extends Component {
   state = {
@@ -42,20 +42,9 @@ class App extends Component {
 
     if (this.state.showPeople) {
         people = (
-            <div>
-                <Person />
-                {this.state.people.map((person, index) => {
-                  return (
-                      <Person name={person.name}
-                        age={person.age}
-                        key={person.id}
-                        incrementAge={this.incrementAgeHandler.bind(this, index)}
-                        changeName={this.changeNameHandler.bind(this, index)}>
-                        {person.name === 'Amy' ? 'I like to ski!' : '' }
-                      </Person>
-                  );
-                })}
-            </div>
+            <Persons persons={this.state.people}
+                incrementAge={this.incrementAgeHandler}
+                changeName={this.changeNameHandler} />
         );
     }
 
