@@ -5,6 +5,7 @@ const LifeCycle extends Component {
         super(props)
         // here you setup state or do modern ES6 and set state
         // as property in this component shown below:
+        console.log('LifeCycle Component constructor called');
     }
 
     state = {
