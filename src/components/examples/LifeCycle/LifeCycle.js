@@ -11,6 +11,19 @@ const LifeCycle extends Component {
     state = {
 
     }
+
+    render() {
+        console.log('LifeCycle Component render called');
+        return (
+            <div>
+                <h1>Hello World!</h1>
+            </div>
+        );
+    }
+
+    componentDidMount() {
+        console.log('LifeCycle Component componentDidMount called');
+    }
 }
 
 export default LifeCycle
