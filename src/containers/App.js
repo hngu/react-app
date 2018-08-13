@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import logo from '../assets/logo.svg'
 import classes from './App.css'
 import Persons from '../components/examples/Persons/Persons'
+import LifeCycle from '../components/examples/LifeCycle/LifeCycle'
 
 class App extends Component {
   state = {
@@ -56,6 +57,7 @@ class App extends Component {
           <button onClick={this.togglePeopleHandler}>Toggle People</button>
         </header>
         {people}
+        <LifeCycle />
       </div>
     );
   }
