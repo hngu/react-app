@@ -1,8 +1,9 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
+import InnerLifeCycle from './InnerLifeCycle/InnerLifeCycle';
 
 class LifeCycle extends Component {
     constructor(props) {
-        super(props)
+        super(props);
         // here you setup state or do modern ES6 and set state
         // as property in this component shown below:
         console.log('LifeCycle Component inside constructor');
@@ -17,6 +18,7 @@ class LifeCycle extends Component {
         return (
             <div>
                 <h1>Hello World!</h1>
+                <InnerLifeCycle />
             </div>
         );
     }
