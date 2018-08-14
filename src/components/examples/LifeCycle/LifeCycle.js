@@ -32,6 +32,15 @@ class LifeCycle extends Component {
         // use this to remove any javascript DOM library instance
         console.log('LifeCycle Component inside componentWillUnmount');
     }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        // must return a boolean!
+        return true;
+    }
+
+    componentDidUpdate() {
+        console.log('LifeCycle Component inside componentDidUpdate');
+    }
 }
 
 export default LifeCycle
