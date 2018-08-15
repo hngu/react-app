@@ -29,7 +29,7 @@ class LifeCycle extends Component {
         return (
             <div>
                 <h1>Hello World!</h1>
-                <button onClick={() => this.setState({hide: true})}>Random hide</button>
+                <button onClick={() => this.setState({list: [...this.state.list]})}>Random hide</button>
                 {listElements}
             </div>
         );

@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 
-class InnerLifeCycle extends Component {
+class InnerLifeCycle extends PureComponent {
     constructor(props) {
         super(props);
         console.log('InnerLifeCycle Component inside constructor');
@@ -23,12 +23,16 @@ class InnerLifeCycle extends Component {
         console.log('InnerLifeCycle Component inside componentWillUnmount');
     }
 
-    shouldComponentUpdate(nextProps, nextState) {
-        // must return a boolean!
-        // can be called when its state or props are updated
-        console.log('[UPDATE] InnerLifeCycle Component inside shouldComponentUpdate');
-        return true;
-    }
+//    // PureComponent will do a shallow equality check
+//    // Component by default always have showComponentUpdate return true
+//    // Be careful of using PureComponent because it does a shallow (not deep) equality
+//    // check and also children components might still need to be re-rendered
+//    shouldComponentUpdate(nextProps, nextState) {
+//        // must return a boolean!
+//        // can be called when its state or props are updated
+//        console.log('[UPDATE] InnerLifeCycle Component inside shouldComponentUpdate');
+//        return true;
+//    }
 
     componentDidUpdate() {
         console.log('[UPDATE] InnerLifeCycle Component inside componentDidUpdate');
