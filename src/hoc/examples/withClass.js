@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+// below is an example of using stateless HOC
 //const withClass = (WrappedComponent, className) => {
 //    return (props) => (
 //        <div className={className}>
@@ -8,6 +9,7 @@ import React, { Component } from 'react';
 //    );
 //}
 
+// below is an example of using stateful HOC
 const withClass = (WrappedComponent, className) => {
     return class extends Component {
         render() {
