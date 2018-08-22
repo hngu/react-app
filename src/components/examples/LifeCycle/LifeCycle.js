@@ -17,6 +17,14 @@ class LifeCycle extends Component {
         hide: false
     }
 
+    forceStateUpdate = () => {
+        this.setState((prevState/*, prevProps*/) => {
+            return {
+                list: [...prevState.list]
+            };
+        });
+    }
+
     render() {
         console.log('LifeCycle Component inside render');
         let listElements;
@@ -29,7 +37,7 @@ class LifeCycle extends Component {
         return (
             <div>
                 <h1>Hello World!</h1>
-                <button onClick={() => this.setState({list: [...this.state.list]})}>Random hide</button>
+                <button onClick={this.forceStateUpdate}>Random hide</button>
                 {listElements}
             </div>
         );

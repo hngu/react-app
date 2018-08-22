@@ -14,8 +14,11 @@ class App extends Component {
   }
 
   togglePeopleHandler = () => {
-    let showPeople = !this.state.showPeople
-    this.setState({showPeople})
+    this.setState((prevState) => {
+        return {
+            showPeople: !prevState.showPeople
+        }
+    })
   }
 
   incrementAgeHandler = (index) => {
