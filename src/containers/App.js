@@ -14,6 +14,9 @@ class App extends Component {
   }
 
   togglePeopleHandler = () => {
+    // remember: setState is async
+    // use callback style if you are setting state that is dependent
+    // on current state
     this.setState((prevState) => {
         return {
             showPeople: !prevState.showPeople
