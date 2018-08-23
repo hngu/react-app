@@ -1,21 +1,39 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classes from './Person.css';
 import Aux from '../../../../hoc/examples/Aux/Aux';
 import withClass from '../../../../hoc/examples/withClass';
 
-const Person = (props) => {
-    return (
-        <Aux>
-            <div>
-                <p>I'm {props.name} and I am {props.age} years old!</p>
-                <p><input type="text" value={props.name} onChange={props.changeName} /></p>
-                <p><button onClick={props.incrementAge}>Increment Age</button></p>
-            </div>
-            <div>{props.children}</div>
-        </Aux>
-    );
-};
+class Person extends Component {
+    constructor(props) {
+        super(props);
+        this.input = React.createRef();
+    }
+
+    componentDidMount() {
+        // example of using refs to focus an input after render
+        // refs only for stateful components
+        this.input.current.focus();
+    }
+
+    render() {
+        return (
+            <Aux>
+                <div>
+                    <p>I'm {this.props.name} and I am {this.props.age} years old!</p>
+                    <p>
+                        <input ref={this.input}
+                               type="text"
+                               value={this.props.name}
+                               onChange={this.props.changeName} />
+                    </p>
+                    <p><button onClick={this.props.incrementAge}>Increment Age</button></p>
+                </div>
+                <div>{this.props.children}</div>
+            </Aux>
+        );
+    }
+}
 
 Person.propTypes = {
     name: PropTypes.string,
