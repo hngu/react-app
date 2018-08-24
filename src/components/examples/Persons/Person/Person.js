@@ -10,9 +10,7 @@ class Person extends Component {
         this.input = React.createRef();
     }
 
-    componentDidMount() {
-        // example of using refs to focus an input after render
-        // refs only for stateful components
+    focus() {
         this.input.current.focus();
     }
 
