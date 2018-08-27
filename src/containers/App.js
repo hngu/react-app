@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import logo from '../assets/logo.svg'
-import classes from './App.css'
-import Persons from '../components/examples/Persons/Persons'
-import LifeCycle from '../components/examples/LifeCycle/LifeCycle'
+import logo from '../assets/logo.svg';
+import classes from './App.css';
+import Persons from '../components/examples/Persons/Persons';
+import LifeCycle from '../components/examples/LifeCycle/LifeCycle';
+import AuthContext from '../contexts/AuthContext';
 
 class App extends Component {
   state = {
@@ -10,7 +11,8 @@ class App extends Component {
       {name: 'James', age: 34, id: 1},
       {name: 'Amy', age: 40, id: 2}
     ],
-    showPeople: false
+    showPeople: false,
+    isAuthenticated: true
   }
 
   togglePeopleHandler = () => {
@@ -62,7 +64,9 @@ class App extends Component {
           <h1 className={classes['App-title']}>Welcome to React</h1>
           <button onClick={this.togglePeopleHandler}>Toggle People</button>
         </header>
-        {people}
+        <AuthContext.Provider value={this.state.isAuthenticated}>
+            {people}
+        </AuthContext.Provider>
         <LifeCycle />
       </div>
     );
