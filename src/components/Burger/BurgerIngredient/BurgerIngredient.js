@@ -30,10 +30,12 @@ class BurgerIngredient extends Component {
             case 'bacon':
                 ingredient = <div className={classes['Bacon']}></div>;
                 break;
+            default:
+                throw new Error(`unknown type: ${this.props.type}`);
         }
-    }
 
-    return ingredient;
+        return ingredient;
+    }
 }
 
 BurgerIngredient.propTypes = {
